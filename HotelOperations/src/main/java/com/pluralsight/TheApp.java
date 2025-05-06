@@ -8,7 +8,7 @@ public class TheApp {
 
         //test our room class
         Room room1 = new Room(2, 139.00, false, false);
-        Room room2 = new Room(1, 100.00, true, true);
+        Room room2 = new Room(1, 124.00, true, true);
 
         //room one should be available because it is not dirty and is not occupied
         System.out.println("Is room1 available: " + room1.isAvailable());
@@ -48,7 +48,9 @@ public class TheApp {
 
         // Test and print derived getters
         System.out.println("Employee ID: " + employee1.getEmployeeId());
-
+        System.out.println("Employee Name: " + employee1.getName());
+        System.out.println(employee1.punchIn());
+        System.out.println(employee1.punchOut());
         System.out.println("Regular Hours: " + employee1.getRegularHours());
         System.out.println("Overtime Hours: " + employee1.getOvertimeHours());
         System.out.println("Total Pay: $" + employee1.getTotalPay());

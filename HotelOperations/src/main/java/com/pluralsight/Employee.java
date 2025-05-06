@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.Scanner;
+
 public class Employee {
     // Private instance variables
     private int employeeId;
@@ -7,6 +9,7 @@ public class Employee {
     private String department;
     private double payRate;
     private double hoursWorked;
+    private boolean clockedIn = true;
 
     // Constructor
     public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
@@ -72,4 +75,33 @@ public class Employee {
         double overtimePay = this.getOvertimeHours() * this.getPayRate() * 1.5;
         return regularPay + overtimePay;
     }
+
+    public void punchIn() {
+
+        if (clockedIn) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Clock in time: ");
+            double input = scanner.nextInt();
+
+            System.out.println(name + " is clocked in." + input);
+            return;
+        }
+    }
+
+    public void punchOut() {
+        Scanner scanner = new Scanner(System.in);
+        if (!clockedIn) {
+            System.out.println(name + " hasn't punched in yet.");
+            return;
+        }
+        if (clockedIn) {
+            System.out.println("Punch out time: ");
+            double out = scanner.nextInt();
+            System.out.println(name + " is clocked out." + out);
+            return;
+        }
+    }
+
+
+
 }

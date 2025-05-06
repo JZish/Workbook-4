@@ -31,6 +31,20 @@ public class Room {
         return !this.isDirty() && !this.isOccupied();
     }
 
+    public boolean checkIn(){
+        return this.isOccupied() && this.isDirty();
+    }
+
+    public void checkOut(){
+        if (isDirty){
+        this.cleanRoom();
+        }
+    }
+
+    public void cleanRoom(){
+
+    }
+
     //create getters
     public int getNumberOfBeds() {
         return numberOfBeds;

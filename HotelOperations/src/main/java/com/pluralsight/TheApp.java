@@ -15,6 +15,7 @@ public class TheApp {
         //room two should NOT be available because it is dirty and is occupied
         System.out.println("Is room2 available: " + room2.isAvailable());
 
+
         //-----------------------------------------Reservation Class below
 
         //testing the reservation class

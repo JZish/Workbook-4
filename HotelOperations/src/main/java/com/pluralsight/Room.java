@@ -32,17 +32,22 @@ public class Room {
     }
 
     public boolean checkIn(){
-        return this.isOccupied() && this.isDirty();
-    }
-
-    public void checkOut(){
-        if (isDirty){
-        this.cleanRoom();
+        if (this.isAvailable()) {
+            this.isOccupied() = true;
+            this.isDirty() = true;
+            System.out.println("Checked in");
+        } else {
+            System.out.println("Unavailable");
         }
     }
 
-    public void cleanRoom(){
+    public void checkOut(){
+        this.cleanRoom();
+        this.isOccupied = false;
+    }
 
+    public void cleanRoom(){
+        this.isDirty = false;
     }
 
     //create getters

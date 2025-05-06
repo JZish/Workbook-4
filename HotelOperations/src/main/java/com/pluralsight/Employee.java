@@ -9,7 +9,7 @@ public class Employee {
     private String department;
     private double payRate;
     private double hoursWorked;
-    private boolean clockedIn = true;
+    private double clockedIn;
 
     // Constructor
     public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
@@ -77,29 +77,12 @@ public class Employee {
     }
 
     public void punchIn() {
-
-        if (clockedIn) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Clock in time: ");
-            double input = scanner.nextInt();
-
-            System.out.println(name + " is clocked in." + input);
-            return;
-        }
+        this.clockedIn = time;
     }
 
     public void punchOut() {
-        Scanner scanner = new Scanner(System.in);
-        if (!clockedIn) {
-            System.out.println(name + " hasn't punched in yet.");
-            return;
-        }
-        if (clockedIn) {
-            System.out.println("Punch out time: ");
-            double out = scanner.nextInt();
-            System.out.println(name + " is clocked out." + out);
-            return;
-        }
+        double worked = time - clockedIn;
+        this.hoursWorked += worked;
     }
 
 

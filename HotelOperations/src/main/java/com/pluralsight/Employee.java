@@ -1,8 +1,12 @@
 package com.pluralsight;
 
-import java.util.Scanner;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Employee {
+
     // Private instance variables
     private int employeeId;
     private String name;
@@ -80,9 +84,22 @@ public class Employee {
         this.clockedIn = time;
     }
 
+    public void punchIn(double time) {
+        LocalDateTime now = LocalDateTime.now();
+        double hour = now.getHour();
+        double minutes = now.getMinute();
+        double seconds = now.getSecond();
+        double convert =
+
+    }
+
     public void punchOut() {
         double worked = time - clockedIn;
         this.hoursWorked += worked;
+    }
+
+    public void punchOut(double time) {
+
     }
 
 

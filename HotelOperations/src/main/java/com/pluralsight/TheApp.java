@@ -46,7 +46,6 @@ public class TheApp {
 
         // Create an Employee object
         Employee employee1 = new Employee(1, "Alice Smith", "Sales", 20.0, 40.0);
-
         // Test and print derived getters
         System.out.println("Employee ID: " + employee1.getEmployeeId());
         System.out.println("Employee Name: " + employee1.getName());

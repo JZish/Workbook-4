@@ -81,27 +81,56 @@ public class Employee {
     }
 
     public void punchIn() {
+        // Get current date and time using LocalDate
+        LocalDateTime now = LocalDateTime.now();
+        // ger hour in military time
+        double time = now.getHour() + now.getMinute() / 60.0;
         this.clockedIn = time;
+        // call original method and pass in time we generated
+        //      this.punchIn(time);
     }
 
     public void punchIn(double time) {
-        LocalDateTime now = LocalDateTime.now();
-        double hour = now.getHour();
-        double minutes = now.getMinute();
-        double seconds = now.getSecond();
-        double convert =
-
+        this.clockedIn = time;
     }
 
     public void punchOut() {
-        double worked = time - clockedIn;
-        this.hoursWorked += worked;
+        LocalDateTime now = LocalDateTime.now();
+        double time = now.getHour() + now.getMinute() / 60.0;
+        if (time >= this.clockedIn) {
+            double worked = time - this.clockedIn;
+            this.hoursWorked += worked;
+        } else {
+            System.out.println("Error: Punch out time is earlier than punch in time.");
+        }
+        // OR
+        //      this.punchOut(time);
     }
 
     public void punchOut(double time) {
-
+        //make sure the time is not before the start time
+        if (time >= clockedIn) {
+            double worked = time - clockedIn;
+            this.hoursWorked += worked;
+        } else {
+            System.out.println("Error: Punch out time is earlier than punch in time.");
+        }
     }
 
+    public void punchTimeCard(double time, boolean isPunchIn) {
+        if(isPunchIn){
+//            this.clockedIn = time;
+            this.punchIn(time);
+        }else{
+//            if (time >= this.clockedIn) {
+//                double worked = time - this.clockedIn;
+//                this.hoursWorked += worked;
+//            } else {
+//                System.out.println("Error: Punch out time is earlier than punch in time.");
+//            }
+            this.punchOut(time);
+        }
 
+    }
 
 }
